@@ -14,8 +14,13 @@ jobs:
       - name: Recuperer le code
         uses: actions/checkout@v4
 
-      - name: Message de bienvenue
-        run: echo "Bienvenue dans GitHub Actions !"
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
-      - name: Lister les fichiers
-        run: ls -la
+      - name: Installer Pytest
+        run: pip install pytest
+
+      - name: Executer les tests
+        run: pytest
